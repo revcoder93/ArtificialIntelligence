@@ -4,8 +4,15 @@ import tiles.Tile;
 
 public class Main {
 	public static Tile[][] genGrid() {
-		int width = (int) ((Math.random() * 10) % 5) + 1;
-		int height = (int) ((Math.random() * 10) % 5) + 1;
+		int width = 0;
+		int height = 0;
+		while(true){
+		width = (int) ((Math.random() * 10) % 5) + 1;
+		height = (int) ((Math.random() * 10) % 5) + 1;
+		if(width > 2 && height > 2){
+			break;
+		}
+		}
 		System.out.println(width + ", " + height);
 		Tile[][] grid = new Tile[height][width];
 		int iLocation = (int) ((Math.random() * 10) % height);
