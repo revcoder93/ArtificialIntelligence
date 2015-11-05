@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.ArrayList;
+
 import tiles.Tile;
 
 public class Tree {
@@ -22,9 +24,20 @@ public class Tree {
 		return true;
 	}
 	/* Moves and returns an arraylist of all possible moves */
-	// public ArrayList<Tile[][]> move(Tile[][] c1, int i, int j) {
-	//
-	// }
+	 public ArrayList<Tile[][]> move(Tile[][] configuration, int i, int j) {
+		 Tile blank = configuration[i][j];
+		 Tile temp;
+		 Tile[][] c2 = configuration;
+		 ArrayList<Tile[][]> ret = new ArrayList<Tile[][]>();
+		 if(i > 0){
+			 temp = configuration[i-1][j];
+			 if(temp.isBlock() || (temp.isPath() && !temp.isFixed())){
+				 c2[i][j] = temp;
+				 configuration[i-1][j] = blank;
+			 }
+		 }
+		 return ret;
+	 }
 
 	public boolean goalTest(Tile[][] configuration) {
 		// search for the initial tile
