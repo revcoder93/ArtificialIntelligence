@@ -7,17 +7,20 @@ import tiles.Tile;
 public class Tree {
 	Node root;
 	ArrayList<Node> stateSpace;
+
 	public Tree(Node n) {
 		root = n;
 		stateSpace = new ArrayList<Node>();
 		stateSpace.add(root);
 		generateTree();
 	}
-	public void generateTree(){
+
+	public void generateTree() {
 		for (int i = 0; i < stateSpace.size(); i++) {
 			expand(stateSpace.get(i));
 		}
 	}
+
 	public void expand(Node parent) {
 		Tile[][] c1 = parent.getConfiguration();
 		for (int i = 0; i < c1.length; i++) {
@@ -27,6 +30,7 @@ public class Tree {
 					for (int k = 0; k < moves.size(); k++) {
 						Node n = new Node(moves.get(k));
 						n.setParent(parent);
+						parent.addChild(n);
 						Node n1 = parent;
 						while (true) {
 							if (n1 != null) {

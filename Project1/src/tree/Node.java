@@ -2,6 +2,7 @@ package tree;
 
 import java.util.ArrayList;
 
+import main.Main;
 import tiles.Tile;
 
 public class Node {
@@ -45,5 +46,19 @@ public class Node {
 			}
 		}
 		return true;
+	}
+	
+	public void print(){
+		for (int i = 0; i < configuration.length; i++) {
+			System.out.print("|   ");
+			for (int j = 0; j < configuration[0].length; j++) {
+				System.out.print(configuration[i][j].toString()+"   |   ");
+			}
+			System.out.println();
+		}
+	}
+	public static void main(String[] args) {
+		Node n = new Node(Main.genGrid());
+		n.print();
 	}
 }
