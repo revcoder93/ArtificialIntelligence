@@ -7,18 +7,15 @@ import tiles.Tile;
 public class Tree {
 	Node root;
 	ArrayList<Node> stateSpace;
-	int position;
 	public Tree(Node n) {
 		root = n;
 		stateSpace = new ArrayList<Node>();
 		stateSpace.add(root);
-		position = 0;
 	}
 	public void generateTree(){
-		for (int i = position; i < stateSpace.size(); i++) {
+		for (int i = 0; i < stateSpace.size(); i++) {
 			expand(stateSpace.get(i));
 		}
-		position = stateSpace.size();
 	}
 	public void expand(Node parent) {
 		Tile[][] c1 = parent.getConfiguration();
