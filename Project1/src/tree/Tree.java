@@ -4,23 +4,69 @@ import tiles.Tile;
 
 public class Tree {
 	Node root;
-	public Tree(Node n){
+
+	public Tree(Node n) {
 		root = n;
 	}
+
 	public boolean isEqual(Tile[][] c1, Tile[][] c2) {
 		for (int i = 0; i < c1.length; i++) {
 			for (int j = 0; j < c1[i].length; j++) {
 				Tile t1 = c1[i][j];
 				Tile t2 = c2[i][j];
-				if(t1.getId() != t2.getId()){
+				if (t1.getId() != t2.getId()) {
 					return false;
 				}
 			}
 		}
 		return true;
 	}
-/*Moves and returns an arraylist of all possible moves*/
-//	public ArrayList<Tile[][]> move(Tile[][] c1, int i, int j) {
-//		
-//	}
+	/* Moves and returns an arraylist of all possible moves */
+	// public ArrayList<Tile[][]> move(Tile[][] c1, int i, int j) {
+	//
+	// }
+
+	public boolean goalTest(Tile[][] configuration) {
+		//search for the initial tile
+		Tile initialTile = null;
+		int initialTileI = 0;
+		int initialTileJ = 0;
+		for (int i = 0; i < configuration.length; i++) {
+			for (int j = 0; j < configuration[i].length; j++) {
+				if(configuration[i][j].isInitial()){
+					initialTile = configuration[i][j];
+					initialTileI = i;
+					initialTileJ = j;
+					break;
+				}
+			}
+		}
+		if(initialTile == null)
+			return false;
+		
+		//iterate to find if they are connected
+		Tile currentTile = initialTile;
+		int currentTileI = initialTileI;
+		int currentTileJ = initialTileJ;
+		while(true){
+			String direction = currentTile.getOut();
+			switch (direction) {
+			case "North":
+				if((currentTileI - 1) < configuration.length){
+					if(configuration[currentTileI - 1][currentTileJ].getIn().equals("South")){
+						currentTile = configuration[currentTileI - 1][currentTileJ];
+						currentTileI = currentTileI - 1;
+						continue;
+					}else{
+						return false;
+					}
+				}
+				else{
+					return false;
+				}
+			//rest of cases here
+				
+			}
+		}
+	}
 }
