@@ -34,6 +34,31 @@ public class Tree {
 			 if(temp.isBlock() || (temp.isPath() && !temp.isFixed())){
 				 c2[i][j] = temp;
 				 configuration[i-1][j] = blank;
+				 ret.add(c2);
+			 }
+		 }
+		 if(i < configuration.length-1){
+			 temp = configuration[i+1][j];
+			 if(temp.isBlock() || (temp.isPath() && !temp.isFixed())){
+				 c2[i][j] = temp;
+				 configuration[i+1][j] = blank;
+				 ret.add(c2);
+			 }
+		 }
+		 if(j > 0){
+			 temp = configuration[i][j-1];
+			 if(temp.isBlock() || (temp.isPath() && !temp.isFixed())){
+				 c2[i][j] = temp;
+				 configuration[i][j-1] = blank;
+				 ret.add(c2);
+			 }
+		 }
+		 if(i < configuration[i].length-1){
+			 temp = configuration[i][j+1];
+			 if(temp.isBlock() || (temp.isPath() && !temp.isFixed())){
+				 c2[i][j] = temp;
+				 configuration[i][j+1] = blank;
+				 ret.add(c2);
 			 }
 		 }
 		 return ret;
