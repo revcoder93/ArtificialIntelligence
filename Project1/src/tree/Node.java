@@ -7,10 +7,10 @@ import tiles.Tile;
 public class Node {
 	ArrayList<Node> children;
 	Node parent;
-	Tile[][] configuration;
-	
-	public Node(){
+	Tile[][] configuration;	
+	public Node(Tile[][] configuration){
 		children = new ArrayList<Node>();
+		this.configuration = configuration;
 	}
 	public void addChild(Node n){
 		children.add(n);
@@ -29,5 +29,8 @@ public class Node {
 	}
 	public Tile[][] getConfiguration(){
 		return configuration;
+	}
+	public boolean hasChildren(){
+		return children.size() > 0;
 	}
 }

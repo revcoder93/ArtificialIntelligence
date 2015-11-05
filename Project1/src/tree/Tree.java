@@ -6,11 +6,13 @@ import tiles.Tile;
 
 public class Tree {
 	Node root;
-
+	ArrayList<Node> stateSpace;
 	public Tree(Node n) {
 		root = n;
+		stateSpace = new ArrayList<Node>();
+		stateSpace.add(root);
 	}
-
+	/*Checks if two configurations are equal*/
 	public boolean isEqual(Tile[][] c1, Tile[][] c2) {
 		for (int i = 0; i < c1.length; i++) {
 			for (int j = 0; j < c1[i].length; j++) {
@@ -23,7 +25,22 @@ public class Tree {
 		}
 		return true;
 	}
-	/* Moves and returns an arraylist of all possible moves */
+	public void expand(Node parent){
+		Tile[][] c1 = parent.getConfiguration();
+		for (int i = 0; i < c1.length; i++) {
+			for (int j = 0; j < c1[0].length; j++) {
+				if(c1[i][j].isBlank()){
+					ArrayList<Tile[][]> moves = move(c1, i, j);
+					for(int k = 0; k<moves.size(); k++){
+						Node n = new Node(moves.get(k));
+						n.setParent(parent);
+						stateSpace.add(n);
+					}
+				}
+			}
+		}
+	}
+	/* Moves and returns an arraylist of the new configurations */
 	 public ArrayList<Tile[][]> move(Tile[][] configuration, int i, int j) {
 		 Tile blank = configuration[i][j];
 		 Tile temp;
