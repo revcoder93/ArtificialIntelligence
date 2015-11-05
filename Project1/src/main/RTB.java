@@ -21,8 +21,10 @@ public class RTB extends SearchProblem {
 			break;
 		case "A*":
 			aStar(grid, visualize);
+			break;
 		case "Greedy":
 			greedy(grid, visualize);
+			break;
 		default:
 			break;
 		}
