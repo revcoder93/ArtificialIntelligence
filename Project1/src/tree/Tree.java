@@ -54,6 +54,8 @@ public class Tree {
 			case "North":
 				if((currentTileI - 1) < configuration.length){
 					if(configuration[currentTileI - 1][currentTileJ].getIn().equals("South")){
+						if(configuration[currentTileI - 1][currentTileJ].isGoal())
+							return true;
 						currentTile = configuration[currentTileI - 1][currentTileJ];
 						currentTileI = currentTileI - 1;
 						continue;
