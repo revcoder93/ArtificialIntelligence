@@ -105,14 +105,14 @@ public class Tile {
 
 	public String toString() {
 		if (isGoal())
-			return "G";
+			return getIn() + "     " + "G";
 		if (isInitial())
-			return "I";
+			return "I" + "     " + getOut();
 		if (isPath())
-			return "P";
+			return getIn() + " " + getOut();
 		if (isBlank())
-			return " ";
-		return "B";
+			return "           ";
+		return "     B     ";
 	}
 
 	public int getId() {
