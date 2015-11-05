@@ -11,6 +11,7 @@ public class Tree {
 		root = n;
 		stateSpace = new ArrayList<Node>();
 		stateSpace.add(root);
+		generateTree();
 	}
 	public void generateTree(){
 		for (int i = 0; i < stateSpace.size(); i++) {

@@ -11,6 +11,7 @@ public class Node {
 	public Node(Tile[][] configuration){
 		children = new ArrayList<Node>();
 		this.configuration = configuration;
+		parent = null;
 	}
 	public void addChild(Node n){
 		children.add(n);
