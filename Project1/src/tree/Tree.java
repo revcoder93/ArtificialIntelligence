@@ -130,7 +130,7 @@ public class Tree {
 					return false;
 				}
 			case "South":
-				if ((currentTileI + 1) > configuration.length) {
+				if ((currentTileI + 1) < configuration.length) {
 					if (configuration[currentTileI + 1][currentTileJ].getIn().equals("North")) {
 						if (configuration[currentTileI + 1][currentTileJ].isGoal())
 							return true;
