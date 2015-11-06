@@ -156,7 +156,9 @@ public class RTB extends SearchProblem {
 		Node n = new Node(Main.genGrid());
 		Tree t = new Tree(n);
 		t.getRoot().print();
-		System.out.println("---------");
+		System.out.println("---------------------------------------------------------------");
+		
+		if(!t.getRoot().getChildren().isEmpty())
 		t.getRoot().getChildren().get(1).print();
 	}
 }

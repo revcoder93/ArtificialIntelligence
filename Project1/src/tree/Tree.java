@@ -14,13 +14,13 @@ public class Tree {
 		stateSpace.add(root);
 		generateTree();
 	}
-
+	/*Generates all the states in the state space*/
 	public void generateTree() {
 		for (int i = 0; i < stateSpace.size(); i++) {
 			expand(stateSpace.get(i));
 		}
 	}
-
+	/*Expands a node*/
 	public void expand(Node parent) {
 		Tile[][] c1 = parent.getConfiguration();
 		for (int i = 0; i < c1.length; i++) {
@@ -32,6 +32,8 @@ public class Tree {
 						n.setParent(parent);
 						parent.addChild(n);
 						Node n1 = parent;
+						/*Checks if a node that originated from a move has the same configuration
+						 * as one of it's parents*/
 						while (true) {
 							if (n1 != null) {
 								if (n1.isEqual(n.getConfiguration())) {
@@ -50,7 +52,8 @@ public class Tree {
 		}
 	}
 
-	/* Moves and returns an arraylist of the new configurations */
+	/*Returns an array of all configurations generated from possible moves of a given configuration
+	 * and position of a blank tile*/
 	public ArrayList<Tile[][]> move(Tile[][] configuration, int i, int j) {
 		Tile blank = configuration[i][j];
 		Tile temp;
