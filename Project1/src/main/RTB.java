@@ -152,13 +152,12 @@ public class RTB extends SearchProblem {
 
 	}
 
-	public static void main(String[] args) {
-		Node n = new Node(Main.genGrid());
-		Tree t = new Tree(n);
-		t.getRoot().print();
-		System.out.println("---------------------------------------------------------------");
-		
-		if(!t.getRoot().getChildren().isEmpty())
-		t.getRoot().getChildren().get(1).print();
-	}
+//	public static void main(String[] args) {
+//		Node n = new Node(Main.genGrid());
+//		Tree t = new Tree(n);
+//		t.getRoot().print();
+//		System.out.println("---------------------------------------------------------------");
+//		
+//		t.getRoot().getChildren().get(1).print();
+//	}
 }

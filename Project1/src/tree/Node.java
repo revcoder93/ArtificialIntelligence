@@ -59,9 +59,9 @@ public class Node {
 	/*Prints the configuration of the node*/
 	public void print() {
 		for (int i = 0; i < configuration.length; i++) {
-			System.out.print("|   ");
+			System.out.print("|");
 			for (int j = 0; j < configuration[0].length; j++) {
-				System.out.print(configuration[i][j].toString() + "   |   ");
+				System.out.print(configuration[i][j].toString() + "|");
 			}
 			System.out.println();
 			System.out.println();
