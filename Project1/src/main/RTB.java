@@ -54,16 +54,6 @@ public class RTB extends SearchProblem {
 		}
 	}
 
-	private void greedy(Tile[][] grid, boolean visualize) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void aStar(Tile[][] grid, boolean visualize) {
-		// TODO Auto-generated method stub
-
-	}
-
 	private void iterativeDeepening(Tile[][] grid, boolean visualize, int limit) {
 		int limitNow = 0;
 		while (limitNow <= limit) {
@@ -150,6 +140,16 @@ public class RTB extends SearchProblem {
 		}
 		children = null;
 		result = null;
+	}
+	
+	private void greedy(Tile[][] grid, boolean visualize) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void aStar(Tile[][] grid, boolean visualize) {
+		// TODO Auto-generated method stub
+
 	}
 
 	public static void main(String[] args) {
