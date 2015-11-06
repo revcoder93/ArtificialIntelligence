@@ -21,9 +21,9 @@ public class Main {
 		while (true) {
 			iLocation = (int) ((Math.random() * 10) % height);
 			jLocation = (int) ((Math.random() * 10) % width);
-			if(grid[iLocation][jLocation] == null){
-			grid[iLocation][jLocation] = new Tile(5, 2);
-			break;
+			if (grid[iLocation][jLocation] == null) {
+				grid[iLocation][jLocation] = new Tile(5, 2);
+				break;
 			}
 		}
 		int id = 3;
@@ -38,8 +38,4 @@ public class Main {
 		}
 		return grid;
 	}
-
-	// public static void main(String[] args) {
-	// genGrid();
-	// }
 }

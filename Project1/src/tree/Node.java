@@ -9,6 +9,8 @@ public class Node {
 	ArrayList<Node> children;
 	Node parent;
 	Tile[][] configuration;
+	private int heuristicValue;
+	private int pathCost;
 
 	public Node(Tile[][] configuration) {
 		children = new ArrayList<Node>();
@@ -43,7 +45,8 @@ public class Node {
 	public boolean hasChildren() {
 		return children.size() > 0;
 	}
-	/*Checks if a node's configuration is equal to another's*/
+
+	/* Checks if a node's configuration is equal to another's */
 	public boolean isEqual(Tile[][] c1) {
 		for (int i = 0; i < c1.length; i++) {
 			for (int j = 0; j < c1[i].length; j++) {
@@ -56,7 +59,8 @@ public class Node {
 		}
 		return true;
 	}
-	/*Prints the configuration of the node*/
+
+	/* Prints the configuration of the node */
 	public void print() {
 		for (int i = 0; i < configuration.length; i++) {
 			System.out.print("|   ");
@@ -67,7 +71,8 @@ public class Node {
 			System.out.println();
 		}
 	}
-	/*Tests if the current node has a configuration that is a goal*/
+
+	/* Tests if the current node has a configuration that is a goal */
 	public boolean goalTest() {
 		// search for the initial tile
 		Tile initialTile = null;
@@ -87,7 +92,8 @@ public class Node {
 		if (initialTile == null)
 			return false;
 
-		// Iterate to check if there's a path from the initial tile to the goal tile
+		// Iterate to check if there's a path from the initial tile to the goal
+		// tile
 		Tile currentTile = initialTile;
 		int currentTileI = initialTileI;
 		int currentTileJ = initialTileJ;
@@ -157,5 +163,21 @@ public class Node {
 	public static void main(String[] args) {
 		Node n = new Node(Main.genGrid());
 		n.print();
+	}
+
+	public int getHeuristic() {
+		return heuristicValue;
+	}
+
+	public void setHeuristic(int heuristicValue) {
+		this.heuristicValue = heuristicValue;
+	}
+
+	public int getPathCost() {
+		return pathCost;
+	}
+
+	public void setPathCost(int pathCost) {
+		this.pathCost = pathCost;
 	}
 }
